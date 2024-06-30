@@ -1,21 +1,27 @@
 meme_dict = {
-            "КРИНЖ": "Что-то очень странное или стыдное",
-            "ЛОЛ": "Что-то очень смешное" }
+    "КРИНЖ": "Что-то очень странное или стыдное",
+    "ЛОЛ": "Что-то очень смешное"
+}
+
 while True:
     word = input("Введите непонятное слово (большими буквами!): ")
-    if word in meme_dict.keys():
+    if word in meme_dict:
         print(meme_dict[word])
     else:
-    print("Такого слова нет в словаре")
-    print("хотите добавить новое слово?")
-    answer = input("да/нет")
+        print("Такого слова нет в словаре")
+    
+    answer = input("Хотите добавить новое слово? (да/нет): ").lower()
     if answer == "да":
-        new_word = input("введите новое слово большими буквами: ")
-        if new_word in meme_dict.keys():
-            print("такое слово уже есть в словаре")
+        new_word = input("Введите новое слово большими буквами: ")
+        if new_word in meme_dict:
+            print("Такое слово уже есть в словаре")
         else:
-            new_meme = input("введите новое значение: ")
+            new_meme = input("Введите значение нового слова: ")
             meme_dict[new_word] = new_meme
-            print(meme_dict)
+            print("Слово успешно добавлено")
+            print("Текущий список слов:", ", ".join(meme_dict.keys()))
+    elif answer == "нет":
+        print("Выход из программы")
+        break
     else:
-        print("до свидания")
+        print("Пожалуйста, введите 'да' или 'нет'")
